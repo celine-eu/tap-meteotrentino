@@ -57,10 +57,7 @@ class SkyConditionsStream(MeteoTrentinoStream):
     def url_base(self) -> str:
         return "https://manager.meteo.report"
 
-    @property
-    @override
-    def path(self) -> str:
-        return "/api/sky_conditions/"
+    path = "/api/sky_conditions/"
 
     schema = th.PropertiesList(
         th.Property("id", th.StringType, required=True),
@@ -100,10 +97,7 @@ class AlertsStream(MeteoTrentinoStream):
     def url_base(self) -> str:
         return "https://www.meteotrentino.it"
 
-    @property
-    @override
-    def path(self) -> str:
-        return "/wp-content/uploads/jsonfiles/allerte.json"
+    path = "/wp-content/uploads/jsonfiles/allerte.json"
 
     schema = th.PropertiesList(
         th.Property("identifier", th.StringType, required=True),
@@ -173,10 +167,7 @@ class MeteoStationsStream(MeteoTrentinoXMLStream):
     def url_base(self) -> str:
         return "https://dati.meteotrentino.it"
 
-    @property
-    @override
-    def path(self) -> str:
-        return "/service.asmx/getListOfMeteoStations"
+    path = "/service.asmx/getListOfMeteoStations"
 
     schema = th.PropertiesList(
         th.Property("code", th.StringType, required=True),
@@ -249,10 +240,7 @@ class StationObservationsStream(MeteoTrentinoXMLStream):
     def url_base(self) -> str:
         return "https://dati.meteotrentino.it"
 
-    @property
-    @override
-    def path(self) -> str:
-        return "/service.asmx/getLastDataOfMeteoStation"
+    path = "/service.asmx/getLastDataOfMeteoStation"
 
     @override
     def get_url_params(
@@ -366,10 +354,7 @@ class ForecastLocationsStream(MeteoTrentinoStream):
     def url_base(self) -> str:
         return "https://meteo.report"
 
-    @property
-    @override
-    def path(self) -> str:
-        return "/open_data/forecasts/trentino.json"
+    path = "/open_data/forecasts/trentino.json"
 
     schema = th.PropertiesList(
         th.Property("id", th.StringType, required=True),

@@ -35,7 +35,7 @@ class MeteoTrentinoStream(RESTStream):
         return ""
 
     @override
-    def get_new_paginator(self) -> None:  # type: ignore[override]
+    def get_new_paginator(self) -> None:
         return None
 
     @override
@@ -56,7 +56,7 @@ class MeteoTrentinoXMLStream(RESTStream):
         return ""
 
     @override
-    def get_new_paginator(self) -> None:  # type: ignore[override]
+    def get_new_paginator(self) -> None:
         return None
 
     @override
