@@ -1,6 +1,6 @@
 # tap-meteotrentino
 
-`tap-meteotrentino` is a Singer tap for MeteoTrentino.
+`tap-meteotrentino` is a Singer tap for MeteoTrentino
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 

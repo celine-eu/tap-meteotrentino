@@ -249,6 +249,7 @@ wheels = [
 
 [[package]]
 name = "celine-eu-tap-meteotrentino"
+version = "1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "requests" },
