@@ -7,7 +7,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "celine-eu-tap-meteotrentino"
-version = "0.2.0"
+version = "0.3.0"
 description = "Singer tap for MeteoTrentino, built with the Meltano Singer SDK."
 readme = "README.md"
 authors = [{ name = "Luca Capra", email = "luca.capra@spindox.it" }]

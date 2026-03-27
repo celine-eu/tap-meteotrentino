@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.0 (2026-03-27)
+
+### Features
+
+- Fix mypi tests
+  ([`777253e`](https://github.com/celine-eu/tap-meteotrentino/commit/777253ece9f1fc77aadbc4bc73b4b8f499eaeec8))
+
+
 ## v0.2.0 (2026-03-27)
 
 ### Features
