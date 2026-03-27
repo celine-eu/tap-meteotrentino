@@ -1,6 +1,35 @@
 # CHANGELOG
 
 
+## v0.1.0 (2026-03-27)
+
+### Continuous Integration
+
+- Bump astral-sh/setup-uv from 7.4.0 to 7.6.0 in the actions group
+  ([`4ef139b`](https://github.com/celine-eu/tap-meteotrentino/commit/4ef139b71ed8221a1afa7b322d79fc15a2a07c15))
+
+Bumps the actions group with 1 update: [astral-sh/setup-uv](https://github.com/astral-sh/setup-uv).
+
+Updates `astral-sh/setup-uv` from 7.4.0 to 7.6.0 - [Release
+  notes](https://github.com/astral-sh/setup-uv/releases) -
+  [Commits](https://github.com/astral-sh/setup-uv/compare/v7.4...37802adc94f370d6bfd71619e3f0bf239e1f3b78)
+
+--- updated-dependencies: - dependency-name: astral-sh/setup-uv dependency-version: 7.6.0
+
+dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+dependency-group: actions ...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+### Features
+
+- Update deps
+  ([`545de27`](https://github.com/celine-eu/tap-meteotrentino/commit/545de275c16a098ccadf98f697c02306843e98f8))
+
+
 ## v0.0.1 (2026-03-27)
 
 ### Bug Fixes
