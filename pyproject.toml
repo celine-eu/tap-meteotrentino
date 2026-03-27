@@ -44,6 +44,7 @@ tap-meteotrentino = 'tap_meteotrentino.tap:TapMeteoTrentino.cli'
 
 [dependency-groups]
 dev = [
+    "python-semantic-release>=9.21.1",
     { include-group = "test" },
 ]
 test = [
@@ -142,3 +143,16 @@ commands = [
     [ "mypy", { replace = "posargs", default = [ "tap_meteotrentino", "tests" ], extend = true } ],
     [ "ty", "check", { replace = "posargs", default = [ "tap_meteotrentino", "tests" ], extend = true } ],
 ]
+
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+update_pyproject_toml = true 
+commit_parser = "conventional"
+
+[tool.semantic_release.commit_parser_options]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
+parse_squash_commits = true
+ignore_merge_commits = true
+
