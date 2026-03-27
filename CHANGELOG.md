@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.0 (2026-03-27)
+
+### Features
+
+- Fix project name for pypi publishing
+  ([`5f2cab0`](https://github.com/celine-eu/tap-meteotrentino/commit/5f2cab01b46ca83e8ae9e6ce54e1f4a6e3e2fa85))
+
+
 ## v0.3.1 (2026-03-27)
 
 ### Bug Fixes
