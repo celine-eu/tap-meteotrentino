@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.3.1 (2026-03-27)
+
+### Bug Fixes
+
+- Force release
+  ([`1d1f7b3`](https://github.com/celine-eu/tap-meteotrentino/commit/1d1f7b321a356e62bd2a33b17dfd28e615d41189))
+
+### Chores
+
+- Add verbose flag
+  ([`a18ae07`](https://github.com/celine-eu/tap-meteotrentino/commit/a18ae07429e36f1440016b30e8508ae85002912c))
+
+
 ## v0.3.0 (2026-03-27)
 
 ### Features
