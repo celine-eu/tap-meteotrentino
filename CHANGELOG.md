@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.0 (2026-03-27)
+
+### Features
+
+- Fix release config
+  ([`e68ec09`](https://github.com/celine-eu/tap-meteotrentino/commit/e68ec09675aecdabd0a47e05c906c54a02fe8c6f))
+
+
 ## v0.1.0 (2026-03-27)
 
 ### Continuous Integration
