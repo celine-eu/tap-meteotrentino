@@ -1,0 +1,62 @@
+send_anonymous_usage_stats: true
+project_id: "tap-meteotrentino"
+default_environment: test
+requires_meltano: ">=4.0"
+environments:
+- name: test
+plugins:
+  extractors:
+  - name: "tap-meteotrentino"
+    namespace: "tap_meteotrentino"
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
+    - structured-logging
+
+    settings:
+    - name: start_date
+      kind: date_iso8601
+      label: Start Date
+      description: >
+        Earliest observation timestamp to sync for station_observations.
+        Defaults to the API's available window (~48 hours).
+
+    - name: station_codes
+      kind: array
+      label: Station Codes
+      description: >
+        Optional list of MeteoTrentino station codes to sync
+        (e.g. ["T0405", "T0153"]). When omitted, all active stations are synced.
+
+    - name: location_ids
+      kind: array
+      label: Forecast Location IDs
+      description: >
+        Optional list of forecast location UUIDs to sync.
+        When omitted, all Trentino forecast locations are synced.
+
+    - name: streams
+      kind: array
+      label: Enabled Streams
+      description: >
+        Optional list of stream names to enable.
+        Valid values: sky_conditions, alerts, meteo_stations,
+        station_observations, forecast_locations, forecasts_hourly,
+        forecasts_daily.
+        When omitted, all streams are enabled.
+
+    settings_group_validation:
+    - []
+
+    config:
+      # Sync only the last 2 days of station observations on first run
+      start_date: 2 days ago
+
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
