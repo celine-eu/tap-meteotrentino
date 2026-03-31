@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.5.0 (2026-03-31)
+
+### Chores
+
+- Rm verbose on build
+  ([`dbb7342`](https://github.com/celine-eu/tap-meteotrentino/commit/dbb7342816656204dabb88329378ec9023a02ac6))
+
+### Features
+
+- Add table prefix, fix missing identifier
+  ([`cb2189f`](https://github.com/celine-eu/tap-meteotrentino/commit/cb2189f32de077278302c26ba6f202496e447fc2))
+
+
 ## v0.4.0 (2026-03-27)
 
 ### Features
