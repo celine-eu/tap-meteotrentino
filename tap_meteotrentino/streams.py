@@ -129,6 +129,10 @@ class AlertsStream(MeteoTrentinoStream):
         row: dict,
         context: Context | None = None,
     ) -> dict | None:
+        # Skip placeholder rows emitted when no alert is active
+        if not row.get("identifier"):
+            return None
+
         # Flatten nested area and resource objects
         area = row.pop("area", {}) or {}
         row["area_desc"] = area.get("areaDesc")

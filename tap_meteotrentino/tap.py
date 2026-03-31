@@ -55,12 +55,22 @@ class TapMeteoTrentino(Tap):
                 "forecasts_daily. When omitted, all streams are enabled."
             ),
         ),
+        th.Property(
+            "table_name_prefix",
+            th.StringType(nullable=True),
+            default="meteotrentino_",
+            description=(
+                "Prefix prepended to every stream (table) name. "
+                "Defaults to 'meteotrentino_'. Set to '' to disable."
+            ),
+        ),
     ).to_dict()
 
     @override
     def discover_streams(self) -> list:
         """Return a list of discovered streams."""
         enabled: list[str] | None = self.config.get("streams")
+        prefix: str = self.config.get("table_name_prefix", "meteotrentino_") or ""
 
         all_streams = [
             streams.SkyConditionsStream(self),
@@ -72,10 +82,14 @@ class TapMeteoTrentino(Tap):
             streams.ForecastsDailyStream(self),
         ]
 
-        if not enabled:
-            return all_streams
+        if enabled:
+            all_streams = [s for s in all_streams if s.name in enabled]
 
-        return [s for s in all_streams if s.name in enabled]
+        if prefix:
+            for stream in all_streams:
+                stream.name = f"{prefix}{stream.name}"
+
+        return all_streams
 
 
 if __name__ == "__main__":
