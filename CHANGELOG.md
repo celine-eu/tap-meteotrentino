@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.1 (2026-03-31)
+
+### Bug Fixes
+
+- Update tests
+  ([`8a7e76a`](https://github.com/celine-eu/tap-meteotrentino/commit/8a7e76aef8d482a6a15c75f04aa0c33eb0524ef9))
+
+
 ## v0.5.0 (2026-03-31)
 
 ### Chores
