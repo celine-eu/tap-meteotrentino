@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.2 (2026-06-29)
+
+### Bug Fixes
+
+- Use string for alerts
+  ([`dbd0c3e`](https://github.com/celine-eu/tap-meteotrentino/commit/dbd0c3ee26cc888c8d71be57c68fd0a6408b272b))
+
+
 ## v0.5.1 (2026-03-31)
 
 ### Bug Fixes
