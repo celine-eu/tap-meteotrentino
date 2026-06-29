@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from datetime import datetime, timedelta
@@ -103,8 +104,8 @@ class AlertsStream(MeteoTrentinoStream):
         th.Property("identifier", th.StringType, required=True),
         th.Property("sender", th.StringType),
         th.Property("sent", th.StringType),
-        th.Property("msg_type", th.ArrayType(th.StringType)),
-        th.Property("scope", th.ArrayType(th.StringType)),
+        th.Property("msg_type", th.StringType),
+        th.Property("scope", th.StringType),
         th.Property("source", th.StringType),
         th.Property("status", th.StringType),
         th.Property("language", th.StringType),
@@ -141,8 +142,12 @@ class AlertsStream(MeteoTrentinoStream):
         resource = row.pop("resource", {}) or {}
         row["resource_uri"] = resource.get("uri")
 
-        # Rename msgType → msg_type
-        row["msg_type"] = row.pop("msgType", row.get("msg_type"))
+        # Rename msgType → msg_type; serialize arrays as JSON strings
+        raw = row.pop("msgType", row.get("msg_type"))
+        row["msg_type"] = json.dumps(raw) if isinstance(raw, list) else raw
+
+        raw_scope = row.get("scope")
+        row["scope"] = json.dumps(raw_scope) if isinstance(raw_scope, list) else raw_scope
 
         # Normalise 'sent' from Italian "DD/MM/YYYY HH:MM:SS" to ISO 8601
         sent = row.get("sent")
