@@ -91,7 +91,6 @@ class AlertsStream(MeteoTrentinoStream):
     name = "alerts"
     primary_keys: ClassVar[list[str]] = ["identifier"]
     replication_key = None
-    records_jsonpath = "$.info"  # unwrap the single info object
 
     @property
     @override
@@ -123,6 +122,21 @@ class AlertsStream(MeteoTrentinoStream):
         th.Property("area_polygon", th.StringType),
         th.Property("resource_uri", th.StringType),
     ).to_dict()
+
+    @override
+    def parse_response(self, response: http_lib.Response) -> Iterable[dict]:
+        """Yield one row per alert.
+
+        The feed's ``info`` key is a single object when one alert is active,
+        a list of objects when several are, and a placeholder object with an
+        empty identifier when none is. Normalise all three to a flat list.
+        """
+        payload = response.json()
+        info = payload.get("info") if isinstance(payload, dict) else None
+        if info is None:
+            return
+        rows = info if isinstance(info, list) else [info]
+        yield from (row for row in rows if isinstance(row, dict))
 
     @override
     def post_process(
