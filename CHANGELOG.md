@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.4 (2026-09-10)
+
+### Bug Fixes
+
+- Pass a real Response in alerts test, bump build-and-inspect to v3"
+  ([`6624fb8`](https://github.com/celine-eu/tap-meteotrentino/commit/6624fb8546843cddb3e13c5880925f4f150bc9c5))
+
+
 ## v0.5.3 (2026-09-10)
 
 ### Bug Fixes
