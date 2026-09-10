@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
+import requests
 
 from tap_meteotrentino.streams import AlertsStream
 from tap_meteotrentino.tap import TapMeteoTrentino
@@ -10,15 +13,12 @@ from tap_meteotrentino.tap import TapMeteoTrentino
 Payload = dict[str, object]
 
 
-class _FakeResponse:
-    """Minimal stand-in for ``requests.Response`` exposing only ``json()``."""
-
-    def __init__(self, payload: Payload) -> None:
-        self._payload = payload
-
-    def json(self, **_: object) -> Payload:
-        """Return the canned payload, ignoring decoder kwargs."""
-        return self._payload
+def _response(payload: Payload) -> requests.Response:
+    """Build a real ``requests.Response`` carrying ``payload`` as its JSON body."""
+    response = requests.Response()
+    response.status_code = 200
+    response._content = json.dumps(payload).encode()  # noqa: SLF001
+    return response
 
 
 def _alert(identifier: str) -> Payload:
@@ -42,7 +42,7 @@ def stream() -> AlertsStream:
 
 
 def _records(stream: AlertsStream, payload: Payload) -> list[dict]:
-    rows = stream.parse_response(_FakeResponse(payload))  # type: ignore[arg-type]
+    rows = stream.parse_response(_response(payload))
     return [r for r in (stream.post_process(row) for row in rows) if r is not None]
 
 
