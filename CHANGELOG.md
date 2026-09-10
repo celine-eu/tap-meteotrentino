@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.3 (2026-09-10)
+
+### Bug Fixes
+
+- Multiple alerts error
+  ([`d8944c6`](https://github.com/celine-eu/tap-meteotrentino/commit/d8944c60e5fecef297c2934bef5852b0a7cd002d))
+
+
 ## v0.5.2 (2026-06-29)
 
 ### Bug Fixes
