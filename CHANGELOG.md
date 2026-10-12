@@ -1,12 +1,25 @@
 # CHANGELOG
 
 
+## v0.5.5 (2026-10-12)
+
+### Bug Fixes
+
+- Stream wind and fixure XML
+  ([`880f995`](https://github.com/celine-eu/tap-meteotrentino/commit/880f995eadcfe382fe6df0be26691454462e109c))
+
+
 ## v0.5.4 (2026-09-10)
 
 ### Bug Fixes
 
 - Pass a real Response in alerts test, bump build-and-inspect to v3"
   ([`6624fb8`](https://github.com/celine-eu/tap-meteotrentino/commit/6624fb8546843cddb3e13c5880925f4f150bc9c5))
+
+### Continuous Integration
+
+- Bump pypi-publish action to v1.14.2 for metadata 2.5
+  ([`611ce84`](https://github.com/celine-eu/tap-meteotrentino/commit/611ce8470f17cb3ba2323d8d3b94b438fec56575))
 
 
 ## v0.5.3 (2026-09-10)
