@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<lastData xmlns="http://www.meteotrentino.it/">
+  <temperature_list>
+    <air_temperature UM="°C">
+      <date>2026-10-07T00:00:00+01</date>
+      <value>13.6</value>
+    </air_temperature>
+    <air_temperature UM="°C">
+      <date>2026-10-07T00:15:00+01</date>
+      <value>13.8</value>
+    </air_temperature>
+  </temperature_list>
+  <precipitation_list>
+    <precipitation UM="mm">
+      <date>2026-10-07T00:00:00+01</date>
+      <value>0</value>
+    </precipitation>
+    <precipitation UM="mm">
+      <date>2026-10-07T00:15:00+01</date>
+      <value>0</value>
+    </precipitation>
+  </precipitation_list>
+  <wind_list>
+    <wind10m UM_speed="m/s" UM_windgust="m/s" UM_direction="gN">
+      <date>2026-10-07T00:00:00+01</date>
+      <speed_value>2.3</speed_value>
+      <windgust>4</windgust>
+      <direction_value>67</direction_value>
+    </wind10m>
+    <wind10m UM_speed="m/s" UM_windgust="m/s" UM_direction="gN">
+      <date>2026-10-07T00:15:00+01</date>
+      <speed_value>2.3</speed_value>
+      <windgust>4</windgust>
+      <direction_value>79</direction_value>
+    </wind10m>
+  </wind_list>
+  <global_radiation_list>
+    <global_radiation UM="W/mq">
+      <date>2026-10-07T00:00:00+01</date>
+      <value>0</value>
+    </global_radiation>
+    <global_radiation UM="W/mq">
+      <date>2026-10-07T00:15:00+01</date>
+      <value>0</value>
+    </global_radiation>
+  </global_radiation_list>
+  <relative_humidity_list>
+    <relative_humidity UM="%">
+      <date>2026-10-07T00:00:00+01</date>
+      <value>66</value>
+    </relative_humidity>
+    <relative_humidity UM="%">
+      <date>2026-10-07T00:15:00+01</date>
+      <value>67</value>
+    </relative_humidity>
+  </relative_humidity_list>
+  <snow_depth_list />
+</lastData>

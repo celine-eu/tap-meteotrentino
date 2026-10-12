@@ -328,17 +328,16 @@ class StationObservationsStream(MeteoTrentinoXMLStream):
         parse_simple_list("relative_humidity_list", "relative_humidity", "relative_humidity_pct")
         parse_simple_list("snow_depth_list", "snow_depth", "snow_depth_cm")
 
-        # Wind may carry sub-elements (speed/direction/gust) or a single value
-        for elem in root.findall("mt:wind_list/mt:wind", MT_NSMAP):
+        # Wind at 10 m: speed and gust in m/s, direction in degrees from north
+        for elem in root.findall("mt:wind_list/mt:wind10m", MT_NSMAP):
             date = elem.findtext("mt:date", None, MT_NSMAP)
             if not date:
                 continue
             ts = _normalize_tz(date)
-            speed = elem.findtext("mt:speed", None, MT_NSMAP)
-            direction = elem.findtext("mt:direction", None, MT_NSMAP)
-            gust = elem.findtext("mt:gust", None, MT_NSMAP)
-            value = elem.findtext("mt:value", None, MT_NSMAP)
-            add(ts, "wind_speed_ms", _parse_float(speed or value))
+            speed = elem.findtext("mt:speed_value", None, MT_NSMAP)
+            direction = elem.findtext("mt:direction_value", None, MT_NSMAP)
+            gust = elem.findtext("mt:windgust", None, MT_NSMAP)
+            add(ts, "wind_speed_ms", _parse_float(speed))
             add(ts, "wind_direction_deg", _parse_float(direction))
             add(ts, "wind_gust_ms", _parse_float(gust))
 
