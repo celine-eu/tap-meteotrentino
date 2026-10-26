@@ -5,9 +5,10 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import TYPE_CHECKING, Any, ClassVar
 from xml.etree import ElementTree
+from zoneinfo import ZoneInfo
 
 import requests as http_lib
 from singer_sdk import Stream
@@ -466,6 +467,9 @@ _FORECAST_FIELDS = th.PropertiesList(
 )
 
 
+_FORECAST_TZ = ZoneInfo("Europe/Rome")
+
+
 def _parse_forecast_records(
     location_id: str,
     data: dict,
@@ -488,12 +492,19 @@ def _parse_forecast_records(
 
     The inner key encodes the absolute position; the offset from the minimum
     inner key gives the number of minutes elapsed since *start*.
+
+    *start* is a naive Europe/Rome wall clock. The offsets are elapsed minutes, so
+    they are added in UTC: stepping the wall clock drifts by an hour across a clock
+    change. Timestamps are emitted in UTC with an explicit offset.
     """
     start_str = data.get("start", "")
     try:
         start_dt = datetime.fromisoformat(start_str)
     except ValueError:
         return
+    if start_dt.tzinfo is None:
+        start_dt = start_dt.replace(tzinfo=_FORECAST_TZ)
+    start_dt = start_dt.astimezone(timezone.utc)
 
     for interval_key, interval_data in data.items():
         if not isinstance(interval_data, dict):
