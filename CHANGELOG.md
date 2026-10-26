@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.5.6 (2026-10-26)
+
+### Bug Fixes
+
+- Step forecast offsets in UTC so days survive DST
+  ([`3ebb36a`](https://github.com/celine-eu/tap-meteotrentino/commit/3ebb36a51db8717020849faf80229ee2c69d833e))
+
+### Continuous Integration
+
+- Pin Python 3.14 for type checking job
+  ([`2f1067f`](https://github.com/celine-eu/tap-meteotrentino/commit/2f1067f21ba9a6756202c6df72fbebd1f3ea858c))
+
+
 ## v0.5.5 (2026-10-12)
 
 ### Bug Fixes
